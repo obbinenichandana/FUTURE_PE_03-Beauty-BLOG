@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aura Skin & Hair Studio Blog - Best salon in Vijayawada. Hair treatments, skincare, bridal makeup, and expert beauty tips.">
+    <meta name="keywords" content="best salon Vijayawada, hair treatment, skincare, bridal makeup, keratin treatment">
+    <title>Aura Skin & Hair Studio - Beauty Blog & Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --bg: #F8F4EF;
+            --ink: #1C1C1A;
+            --ink2: #5A574F;
+            --red: #C13B2A;
+            --mint: #3A7D6F;
+            --sand: #C4A882;
+            --rule: rgba(28,28,26,.1);
+            --fd: 'Playfair Display', serif;
+            --fb: 'Space Grotesk', sans-serif;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--fb); background: var(--bg); color: var(--ink); }
+        
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(248,244,239,.95); border-bottom: 1px solid var(--rule);
+            backdrop-filter: blur(12px);
+        }
+        
+        .nav-inner {
+            max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1rem 2.5rem;
+        }
+        
+        .nav-logo {
+            font-family: var(--fd); font-size: 1.3rem; font-weight: 700;
+            color: var(--ink); text-decoration: none;
+        }
+        
+        .nav-mid { display: flex; gap: 2rem; list-style: none; }
+        .nav-mid a {
+            font-size: .72rem; font-weight: 500; letter-spacing: .1em;
+            text-transform: uppercase; color: var(--ink2); text-decoration: none;
+            transition: color .2s;
+        }
+        .nav-mid a:hover { color: var(--red); }
+        
+        .nav-subscribe {
+            font-family: var(--fd); font-size: .75rem; font-weight: 700;
+            padding: .5rem 1.2rem; border-radius: 100px;
+            background: var(--red); color: white; text-decoration: none;
+            transition: background .2s;
+        }
+        .nav-subscribe:hover { background: var(--ink); }
+        
+        /* HERO */
+        .hero {
+            max-width: 1400px; margin: 0 auto;
+            padding: 5.5rem 2.5rem 3rem;
+        }
+        
+        .hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: end; }
+        
+        .hero-left h1 {
+            font-family: var(--fd);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900; line-height: .95;
+            letter-spacing: -.02em; margin-bottom: 1.5rem;
+        }
+        
+        .hero-left h1 em { font-style: italic; color: var(--red); }
+        
+        .hero-excerpt {
+            font-size: 1.1rem; line-height: 1.7; color: var(--ink2);
+            max-width: 600px; margin-bottom: 1.5rem;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            font-family: var(--fb); font-size: .75rem; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase;
+            padding: .8rem 1.75rem;
+            background: var(--ink); color: white;
+            border-radius: 100px; text-decoration: none;
+            transition: background .2s;
+        }
+        .hero-btn:hover { background: var(--red); }
+        
+        .hero-img {
+            border-radius: 15px; aspect-ratio: 3/4;
+            background: linear-gradient(160deg, #E8D8CC 0%, #C8B09A 100%);
+            display: flex; align-items: flex-end;
+            padding: 1.5rem; font-family: var(--fd);
+            font-style: italic; color: rgba(255,255,255,.7);
+        }
+        
+        /* MAIN LAYOUT */
+        .main { max-width: 1400px; margin: 0 auto; padding: 3rem 2.5rem; }
+        
+        /* FEATURED GRID */
+        .featured-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5px; background: var(--rule);
+            border-radius: 12px; overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .featured-card {
+            background: var(--bg); text-decoration: none;
+            color: inherit; padding: 2rem;
+            transition: transform .3s, box-shadow .3s;
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+        }
+        
+        .featured-card h3 {
+            font-family: var(--fd); font-size: 1.3rem;
+            margin-bottom: 1rem; line-height: 1.2;
+        }
+        
+        .featured-card p {
+            color: var(--ink2); font-size: .95rem; line-height: 1.6;
+        }
+        
+        /* BLOG CARDS */
+        .blog-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: white; border-radius: 12px;
+            border: 1px solid var(--rule);
+            overflow: hidden; text-decoration: none;
+            color: inherit; transition: transform .3s;
+        }
+        
+        .blog-card:hover { transform: translateY(-6px); }
+        
+        .blog-card-img {
+            width: 100%; height: 220px;
+            background: linear-gradient(135deg, var(--sand) 0%, var(--red) 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 3rem;
+        }
+        
+        .blog-card-body { padding: 1.5rem; }
+        
+        .blog-card-tag {
+            font-size: .65rem; color: var(--red); font-weight: 700;
+            text-transform: uppercase; margin-bottom: .5rem;
+            letter-spacing: .1em;
+        }
+        
+        .blog-card h3 {
+            font-family: var(--fd); font-size: 1.2rem;
+            margin-bottom: .75rem; line-height: 1.3;
+        }
+        
+        .blog-card p {
+            color: var(--ink2); font-size: .9rem;
+            line-height: 1.6; margin-bottom: 1rem;
+        }
+        
+        .blog-card-meta {
+            font-size: .8rem; color: #999;
+            border-top: 1px solid var(--rule); padding-top: .75rem;
+        }
+        
+        /* NEWSLETTER */
+        .newsletter {
+            background: var(--ink); color: white;
+            border-radius: 12px; padding: 3rem;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem; margin: 3rem 0;
+        }
+        
+        .nl-title {
+            font-family: var(--fd); font-size: 1.8rem;
+            line-height: 1.2;
+        }
+        
+        .nl-title em { font-style: italic; color: var(--red); }
+        
+        .nl-sub {
+            color: rgba(255,255,255,.8); font-size: .95rem;
+            line-height: 1.6; margin-top: 1rem;
+        }
+        
+        .nl-form { display: flex; gap: .5rem; align-items: center; }
+        
+        .nl-input {
+            flex: 1; padding: .8rem 1rem;
+            border: none; border-radius: 50px;
+            font-family: var(--fb); font-size: .9rem;
+        }
+        
+        .nl-btn {
+            padding: .8rem 1.5rem;
+            background: var(--red); color: white;
+            border: none; border-radius: 50px;
+            font-weight: 700; cursor: pointer;
+            transition: background .2s;
+        }
+        .nl-btn:hover { background: var(--mint); }
+        
+        /* FOOTER */
+        footer {
+            background: var(--ink); color: white;
+            padding: 3rem 2.5rem 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .ft-inner { max-width: 1400px; margin: 0 auto; }
+        
+        .ft-top {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem; margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            padding-bottom: 2rem;
+        }
+        
+        .ft-brand { font-family: var(--fd); font-size: 1.1rem; }
+        .ft-brand p { font-size: .9rem; opacity: .8; margin-top: .5rem; }
+        
+        .ft-col h4 {
+            font-size: .9rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase;
+        }
+        
+        .ft-col ul { list-style: none; }
+        .ft-col a {
+            color: rgba(255,255,255,.8); text-decoration: none;
+            font-size: .9rem; line-height: 1.8;
+            transition: color .2s;
+        }
+        .ft-col a:hover { color: var(--red); }
+        
+        .ft-bot {
+            display: flex; justify-content: space-between;
+            font-size: .85rem; opacity: .7;
+        }
+        
+        .ft-socials { display: flex; gap: 1.5rem; }
+        .ft-socials a { color: inherit; text-decoration: none; }
+        .ft-socials a:hover { color: var(--red); }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .newsletter { grid-template-columns: 1fr; }
+            .ft-top { grid-template-columns: 1fr; }
+            .nl-form { flex-direction: column; }
+            .nav-mid { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="/">
+            Aura Studio<br>
+            <span style="font-family: var(--fm); font-size: 0.5rem; color: var(--ink2);">Beauty Blog</span>
+        </a>
+        <ul class="nav-mid">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#packages">Packages</a></li>
+        </ul>
+        <a href="#book" class="nav-subscribe">Book Now</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-grid">
+        <div class="hero-left">
+            <h1>Best <em>Salon in Vijayawada</em><br>Beauty Treatments & Expert Tips</h1>
+            <p class="hero-excerpt">Discover professional hair treatments, skincare services, and bridal packages from Aura Skin & Hair Studio. 10+ years of beauty expertise in Vijayawada.</p>
+            <a href="#book" class="hero-btn">Book Your Appointment →</a>
+        </div>
+        <div class="hero-img">
+            ✨ Aura Salon<br><small>Vijayawada</small>
+        </div>
+    </div>
+</div>
+
+<!-- FEATURED ARTICLES -->
+<div class="main">
+    <div style="margin-bottom: 3rem;">
+        <h2 style="font-family: var(--fd); font-size: 1.8rem; margin-bottom: 2rem;">
+            Top Articles This Month
+        </h2>
+    </div>
+    
+    <div class="featured-grid">
+        <a href="#" class="featured-card">
+            <h3>Best Salon in Vijayawada – Complete Guide</h3>
+            <p>Discover what makes a salon truly excellent, our services, pricing, and why 5000+ clients trust Aura.</p>
+            <div style="margin-top: 1rem; color: var(--red); font-weight: 700; font-size: .85rem;">
+                Read More →
+            </div>
+        </a>
+        
+        <a href="#" class="featured-card">
+            <h3>Hair Treatments & Costs in Vijayawada</h3>
+            <p>Keratin treatments, hair coloring, hair spa – everything explained with pricing and results timeline.</p>
+            <div style="margin-top: 1rem; color: var(--red); font-weight: 700; font-size: .85rem;">
+                Read More →
+            </div>
+        </a>
+        
+        <a href="#" class="featured-card">
+            <h3>Bridal Makeup & Pre-Bridal Packages</h3>
+            <p>6-week pre-bridal guide, makeup options, timeline, and special wedding season offers.</p>
+            <div style="margin-top: 1rem; color: var(--red); font-weight: 700; font-size: .85rem;">
+                Read More →
+            </div>
+        </a>
+    </div>
+
+    <!-- BLOG GRID -->
+    <div id="blog" style="margin: 4rem 0;">
+        <h2 style="font-family: var(--fd); font-size: 1.8rem; margin-bottom: 2rem;">Latest Blog Posts</h2>
+    </div>
+    
+    <div class="blog-grid">
+        <a href="#" class="blog-card">
+            <div class="blog-card-img">💇</div>
+            <div class="blog-card-body">
+                <div class="blog-card-tag">Hair Care</div>
+                <h3>Keratin Treatment: How Long It Really Lasts</h3>
+                <p>Understanding keratin treatment duration, aftercare tips, and how to maximize results in Vijayawada's climate.</p>
+                <div class="blog-card-meta">Hair · 5 min · 2.4K reads</div>
+            </div>
+        </a>
+        
+        <a href="#" class="blog-card">
+            <div class="blog-card-img">✨</div>
+            <div class="blog-card-body">
+                <div class="blog-card-tag">Skincare</div>
+                <h3>Is Skin Brightening Safe? What Dermatologists Say</h3>
+                <p>Expert insights on professional skin brightening treatments, safety concerns, and realistic expectations.</p>
+                <div class="blog-card-meta">Skincare · 6 min · 4.2K reads</div>
+            </div>
+        </a>
+        
+        <a href="#" class="blog-card">
+            <div class="blog-card-img">💐</div>
+            <div class="blog-card-body">
+                <div class="blog-card-tag">Bridal</div>
+                <h3>Bridal Makeup Prep: The 6-Week Skin Plan</h3>
+                <p>Complete pre-wedding skincare timeline to achieve that bridal glow. Week-by-week treatment guide.</p>
+                <div class="blog-card-meta">Bridal · 7 min · 3.1K reads</div>
+            </div>
+        </a>
+        
+        <a href="#" class="blog-card">
+            <div class="blog-card-img">💧</div>
+            <div class="blog-card-body">
+                <div class="blog-card-tag">Hair Care</div>
+                <h3>Why Hard Water Ruins Your Hair in Vijayawada</h3>
+                <p>Understanding hard water effects, symptoms of damage, and professional treatments that actually work.</p>
+                <div class="blog-card-meta">Hair · 5 min · 2.7K reads</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <div id="services" style="margin: 4rem 0;">
+        <h2 style="font-family: var(--fd); font-size: 1.8rem; margin-bottom: 2rem;">Our Services</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--rule);">
+                <h3 style="font-family: var(--fd); margin-bottom: 1rem;">💇 Hair Services</h3>
+                <ul style="font-size: .9rem; line-height: 2; color: var(--ink2);">
+                    <li>✓ Professional haircuts</li>
+                    <li>✓ Hair coloring & highlights</li>
+                    <li>✓ Keratin treatments</li>
+                    <li>✓ Hair spa & conditioning</li>
+                    <li>✓ Scalp treatments</li>
+                </ul>
+            </div>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--rule);">
+                <h3 style="font-family: var(--fd); margin-bottom: 1rem;">✨ Skincare</h3>
+                <ul style="font-size: .9rem; line-height: 2; color: var(--ink2);">
+                    <li>✓ Professional facials (6 types)</li>
+                    <li>✓ Skin brightening</li>
+                    <li>✓ Acne treatment</li>
+                    <li>✓ Chemical peels</li>
+                    <li>✓ Anti-aging therapy</li>
+                </ul>
+            </div>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--rule);">
+                <h3 style="font-family: var(--fd); margin-bottom: 1rem;">💐 Bridal</h3>
+                <ul style="font-size: .9rem; line-height: 2; color: var(--ink2);">
+                    <li>✓ 6-week pre-bridal</li>
+                    <li>✓ Bridal makeup & hair</li>
+                    <li>✓ Trial sessions</li>
+                    <li>✓ Package deals</li>
+                    <li>✓ Honeymoon glow</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter" id="book">
+        <div>
+            <h2 class="nl-title">Ready to <em>Transform?</em></h2>
+            <p class="nl-sub">Book your appointment today or subscribe to our beauty tips newsletter.</p>
+        </div>
+        <div class="nl-form">
+            <input class="nl-input" type="email" placeholder="your@email.com">
+            <button class="nl-btn">Subscribe →</button>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; padding: 2rem; background: rgba(193, 59, 42, .08); border-radius: 12px; margin: 2rem 0;">
+        <h3 style="font-family: var(--fd); font-size: 1.5rem; margin-bottom: 1rem;">Ready to Book Your Appointment?</h3>
+        <p style="color: var(--ink2); margin-bottom: 1.5rem;">Choose your preferred service and time. We're open Monday-Sunday.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="tel:+919999999999" class="hero-btn">📞 Call Us</a>
+            <a href="https://wa.me/919999999999" class="hero-btn" style="background: var(--mint);">💬 WhatsApp</a>
+            <a href="#" class="hero-btn">📅 Online Booking</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="ft-inner">
+        <div class="ft-top">
+            <div class="ft-brand">
+                Aura Skin & Hair Studio
+                <p>Beauty advice backed by real expertise. Published by Aura Skin & Hair Studio, Vijayawada.</p>
+            </div>
+            <div class="ft-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Hair Services</a></li>
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Bridal Packages</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="ft-col">
+                <h4>Blog</h4>
+                <ul>
+                    <li><a href="#">Latest Articles</a></li>
+                    <li><a href="#">Hair Tips</a></li>
+                    <li><a href="#">Skincare Guide</a></li>
+                    <li><a href="#">Bridal Guide</a></li>
+                </ul>
+            </div>
+            <div class="ft-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">Book Now</a></li>
+                    <li><a href="tel:+919999999999">Call Us</a></li>
+                    <li><a href="#">Visit Us</a></li>
+                    <li><a href="#">About Aura</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ft-bot">
+            <div class="ft-copy">© 2024 AURA SKIN & HAIR STUDIO · VIJAYAWADA</div>
+            <div class="ft-socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Smooth scroll handling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Newsletter form
+document.querySelector('.nl-btn')?.addEventListener('click', function(){
+    const input = document.querySelector('.nl-input');
+    if(input.value.includes('@')){
+        this.textContent = '✓ Subscribed!';
+        this.style.background = 'var(--mint)';
+        input.value = '';
+        setTimeout(() => {
+            this.textContent = 'Subscribe →';
+            this.style.background = '';
+        }, 2500);
+    }
+});
+</script>
+
+</body>
+</html>
